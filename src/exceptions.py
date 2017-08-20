@@ -44,7 +44,7 @@ class StateNotFoundError(Error):
     """
 
     def __init__(self, state):
-        self.expression = "Your commands doesn't have a " + string + " state"
+        self.expression = "Your commands doesn't have a " + state + " state"
 
 
 class TransitionError(SyntaxError):
