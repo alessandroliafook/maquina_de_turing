@@ -3,47 +3,47 @@ LEFT = 'l'
 RIGHT = 'r'
 USED = '*'
 
-
 class Tape(object):
 
-    def __init__(self):
-
-        self.position = 1
-        self.input = []
+    def __init__(self, head_position=1, cells=[]):
+        self.head_position = head_position
+        self.cells = cells
 
     def insert(self, input):
-        self.input.append(BLANK)
+        self.cells.append(BLANK)
+        self.cells += list(input.replace(' ', BLANK))
+        self.cells.append(BLANK)
 
-        if input == '':
-            self.input.append(BLANK)
-            return
+    def get_head_symbol(self):
+        return self.cells[self.head_position]
 
-        for i in xrange(len(input)):
-            self.input.append(input[i])
+    def get_head_position(self):
+        return self.head_position
 
-        self.input.append(BLANK)
-
-    def get_symbol(self):
-        return self.input[self.position]
-
-    def get_position(self):
-        return str(self.position)
+    def get_tape(self):
+        return self.cells
 
     def move(self, direction):
+        if direction == RIGHT:
+            if self.head_position == len(self.cells)-1:
+                self.cells.append(BLANK)
+                self.head_position += 1
+            else:
+                self.head_position += 1
 
-        if direction == LEFT:
-            self.position -= 1
-
-        else if direction == RIGHT:
-            self.position += 1
-
-        else if direction == USED:
-            # to be sure that is do nothing in this case
-            return
+        elif direction == LEFT:
+            if self.head_position == 0:
+                self.cells = [BLANK] + self.cells
+                self.head_position = 0
+            else:
+                self.head_position -= 1
 
     def write(self, symbol):
         if symbol != USED:
-            self.input.[self.position] = symbol
+            self.cells[self.head_position] = symbol
 
-    def get_tape(self):
-        return str(self.input)
+    def __str__(self):
+        return str(self.cells)
+
+    def __repr__(self):
+        return str(self.cells)
