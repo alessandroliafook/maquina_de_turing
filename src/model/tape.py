@@ -10,6 +10,7 @@ class Tape(object):
         self.cells = cells
 
     def insert(self, input):
+        self.cells = [] #clear cells
         self.cells.append(BLANK)
         self.cells += list(input.replace(' ', BLANK))
         self.cells.append(BLANK)

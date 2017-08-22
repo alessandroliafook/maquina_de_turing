@@ -1,7 +1,9 @@
 import time
 
-from src.model.configuration import Configuration
-from src.model.tape import Tape
+# noinspection PyUnresolvedReferences
+from configuration import Configuration
+# noinspection PyUnresolvedReferences
+from tape import Tape
 
 INITIALSTATENAME = '0'
 ACCEPTANCESTATE = 'halt-accept'

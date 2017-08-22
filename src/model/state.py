@@ -1,4 +1,3 @@
-from src.view import data_validator
 
 class State(object):
 

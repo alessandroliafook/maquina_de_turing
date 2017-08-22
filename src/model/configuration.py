@@ -1,4 +1,5 @@
-from src.model.state import State
+# noinspection PyUnresolvedReferences
+from state import State
 
 USED = '*'
 COMMENTSYMBOL = ';'
@@ -29,7 +30,7 @@ class Configuration:
         return next_state
 
     def __str__(self):
-        pass
+        return str(self.states.keys())
 
     def __repr__(self):
-        pass
+        return "Machine Configuration"
