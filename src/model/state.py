@@ -1,30 +1,25 @@
-from src.view import data_validator
-
 
 class State(object):
 
-    def __init__(self, name):
-
+    def __init__(self, name='', symbol='', new_symbol='', direction='', next_state_name=''):
         self.name = name
-        self.functions = {}
+        self.symbol = symbol
+        self.new_symbol = new_symbol
+        self.direction = direction
+        self.next_state_name = next_state_name
 
     def __eq__(self, other):
         return self.name == other.name
 
     def __str__(self):
-        return str(self.name)
+        return 'State %s' % self.name
 
-    def add_transition(self, input_symbol, write_symbol, direction_symbol,
-                       next_state):
+    def __repr__(self):
+        return '%s %s %s %s %s' %(self.name, self.symbol, self.new_symbol, self.direction, self.next_state_name)
 
-        transition = [write_symbol, direction_symbol, next_state]
-        data_validator.transition(self, input_symbol, direction_symbol, 
-                                  next_state)
-
-        self.functions[input_symbol] = transition
-
-    def process(self, input):
-
-        data_validator.input(self, input)
-
-        return self.functions[input][:]
+    def update_state(self, name='', symbol='', new_symbol='', direction='', next_state_name=''):
+        self.name = name
+        self.symbol = symbol
+        self.new_symbol = new_symbol
+        self.direction = direction
+        self.next_state_name = next_state_name
