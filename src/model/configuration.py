@@ -15,6 +15,7 @@ class Configuration:
 
     def upload_states_by_archive(self, path):
         arq = open(path)
+        self.states.clear()
         for line in arq:
             if not line.startswith(COMMENTSYMBOL) and not line.startswith(BREAKLINE) and len(line) > 2:
                 line = line.split(" ")
