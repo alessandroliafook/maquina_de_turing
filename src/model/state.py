@@ -8,9 +8,6 @@ class State(object):
         self.direction = direction
         self.next_state_name = next_state_name
 
-    def __eq__(self, other):
-        return self.name == other.name
-
     def __str__(self):
         return 'State %s' % self.name
 
