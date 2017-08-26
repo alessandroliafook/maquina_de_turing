@@ -1,3 +1,5 @@
+# coding: utf-8
+
 BLANK = '_'
 LEFT = 'l'
 RIGHT = 'r'
@@ -44,7 +46,18 @@ class Tape(object):
             self.cells[self.head_position] = symbol
 
     def __str__(self):
-        return str(self.cells)
+        tape = ""
+        head_pointer = ""
+        for i in range(len(self.cells)):
+            if i == self.head_position:
+                head_pointer += "↓ "
+            else:
+                head_pointer += "  "
+
+        for cell in self.cells:
+            tape += cell + " "
+
+        return head_pointer + "\n" + tape.replace("_", " ")
 
     def __repr__(self):
         return str(self.cells)

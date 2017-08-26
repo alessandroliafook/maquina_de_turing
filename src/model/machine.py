@@ -24,7 +24,7 @@ class Machine:
     def run(self):
         current_state = self.configuration.next_state(INITIALSTATENAME, self.tape.get_head_symbol())
         while True:
-            print (current_state)
+            print ("Current state: " + str(current_state))
             print (self.tape)
             time.sleep(0.10)
             self.tape.write(current_state.new_symbol)

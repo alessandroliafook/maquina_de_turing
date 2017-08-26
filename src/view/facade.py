@@ -8,16 +8,18 @@ class Facade:
 
     def start(self):
         self.print_header()
-        option = raw_input(OPTIONS)
-        if option.lower() == 'i':
-            path = self.get_program_path()
-            tape = self.get_input_word()
-            self.manager.mount_machine(path, tape)
-        elif option.lower() == 'c':
-            print "Closing simulator..."
-            pass
-        else:
-            print "Invalid option"  # to do: exception
+        while True:
+            option = raw_input(OPTIONS)
+            if option.lower() == 'i':
+                path = self.get_program_path()
+                tape = self.get_input_word()
+                self.manager.mount_machine(path, tape)
+
+            elif option.lower() == 'c':
+                print "Closing simulator..."
+                break
+            else:
+                print "Invalid option"  # to do: exception
 
 
 
@@ -44,4 +46,5 @@ class Facade:
         print "> Write the input word:"
         word = raw_input()
         return word
+
 
