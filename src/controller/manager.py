@@ -1,7 +1,7 @@
 from src.model.machine import Machine
 
-class Manager:
 
+class Manager:
     def __init__(self):
         self.machine = Machine()
 
@@ -12,6 +12,3 @@ class Manager:
 
     def start_machine(self):
         print self.machine.run()
-
-
-
