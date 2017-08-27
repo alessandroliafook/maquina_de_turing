@@ -11,4 +11,4 @@ class Manager:
         self.start_machine()
 
     def start_machine(self):
-        print self.machine.run()
+        self.machine.run()

@@ -1,7 +1,9 @@
 from src.controller.manager import Manager
+import time
 
-OPTIONS = "\nPress 'I' to import a program, or 'C' to close the simulator: "
-
+BREAKLINE = '\n'
+OPTIONS = BREAKLINE + "=============================================================" +\
+          BREAKLINE + "Press 'I' to import a program, or 'C' to close the simulator: "
 
 class Facade:
     def __init__(self):
@@ -11,6 +13,7 @@ class Facade:
         self.print_header()
         while True:
             option = raw_input(OPTIONS)
+
             if option.lower() == 'i':
                 path = self.get_program_path()
                 tape = self.get_input_word()
@@ -18,6 +21,7 @@ class Facade:
 
             elif option.lower() == 'c':
                 print ("Closing simulator...")
+                time.sleep(0.5)
                 break
             else:
                 print ("Invalid option")  # to do: exception
