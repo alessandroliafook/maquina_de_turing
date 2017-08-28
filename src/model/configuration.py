@@ -1,29 +1,28 @@
 # noinspection PyUnresolvedReferences
 from state import State
 
+from src.view.file_reader import file_reader
+
 USED = '*'
 COMMENTSYMBOL = ';'
-BREAKLINE = '\n'
 
-
+"""
+    The class Configuration contains a state dictionary for Turing Machine
+"""
 class Configuration:
 
     def __init__(self):
         self.states = {}
 
+    def have_states(self):
+        return bool(self.states)
+
     def insert_state(self, state=State()):
         self.states[(state.name, state.symbol)] = state
 
-    def upload_states_by_archive(self, path):
-        arq = open(path)
+    def set_states(self, states):
         self.states.clear()
-        for line in arq:
-            if not line.startswith(COMMENTSYMBOL) and not line.startswith(BREAKLINE) and len(line) > 2:
-                line = line.split(" ")
-                line[-1] = line[-1].strip(BREAKLINE)
-                state = State(line[0], line[1], line[2], line[3], line[4])
-                self.insert_state(state)
-        arq.close()
+        self.states = states
 
     def next_state(self, name, symbol):
         next_state = self.states.get((name, symbol))

@@ -1,15 +1,11 @@
 
-def commands(commands):
-    return
+def configuration_path(path):
+    try:
+        open(path, "r")
+        return True
+    except IOError:
+        return False
 
 
-def states(states):
-    return
-
-
-def input(state, actual_input):
-    return
-
-
-def transition(state, input_symbol, direction_symbol, next_state):
-    return
+def tape(states):
+    return True
