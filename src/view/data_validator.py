@@ -1,5 +1,5 @@
 
-def configuration_path(path):
+def validade_path(path):
     try:
         open(path, "r")
         return True
@@ -7,5 +7,5 @@ def configuration_path(path):
         return False
 
 
-def tape(states):
+def validade_tape(states):
     return True

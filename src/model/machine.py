@@ -1,12 +1,10 @@
 # coding: utf-8
 
 import time
-
-# noinspection PyUnresolvedReferences
-from configuration import Configuration
 # noinspection PyUnresolvedReferences
 from tape import Tape
 
+from src.model.machine_program import Machine_Program
 from src.view.file_reader import file_reader
 
 INITIALSTATENAME = '0'
@@ -16,24 +14,24 @@ BOUNCESTATE = 'halt-reject'
 
 class Machine:
 
-    def __init__(self, tape=Tape(), configuration=Configuration()):
+    def __init__(self, tape=Tape(), machine_program=Machine_Program()):
         self.tape = tape
-        self.configuration = configuration
+        self.machine_program = machine_program
         self.steps = []
 
-    def have_configuration(self):
-        return self.configuration.have_states()
+    def have_program(self):
+        return self.machine_program.have_states()
 
-    def load_states_from_file(self, path):
+    def load_program(self, path):
         states = file_reader(path)
-        self.configuration.set_states(states)
+        self.machine_program.set_states(states)
 
     def insert_tape(self, input):
         self.tape.insert(input)
 
     def run(self):
         cont = 0
-        current_state = self.configuration.next_state(INITIALSTATENAME, self.tape.get_head_symbol())
+        current_state = self.machine_program.next_state(INITIALSTATENAME, self.tape.get_head_symbol())
         while True:
             time.sleep(0.10)
             print ("Current state: %s | Head Position: %d | Steps: %d" % (str(current_state),
@@ -58,7 +56,7 @@ class Machine:
                     break
 
                 state_aux = current_state
-                current_state = self.configuration.next_state(state_aux.next_state_name, self.tape.get_head_symbol())
+                current_state = self.machine_program.next_state(state_aux.next_state_name, self.tape.get_head_symbol())
             else:
                 break
 
