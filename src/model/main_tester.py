@@ -1,13 +1,14 @@
 # noinspection PyUnresolvedReferences
 from machine import Machine
 
-'''
+
 #palindrome_detector - OK
 machine = Machine()
 machine.upload_states_by_archive("../tests/palindrome_detector.in")
-machine.insert_tape("1001001001001001")
+machine.insert_tape("1001")
 machine.run()
-'''
+
+
 '''
 #Binary addiction - OK
 machine = Machine()
