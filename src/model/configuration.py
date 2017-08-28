@@ -5,22 +5,24 @@ from src.view.file_reader import file_reader
 
 USED = '*'
 COMMENTSYMBOL = ';'
-BREAKLINE = '\n'
 
-
+"""
+    The class Configuration contains a state dictionary for Turing Machine
+"""
 class Configuration:
 
     def __init__(self):
         self.states = {}
 
+    def have_states(self):
+        return bool(self.states)
+
     def insert_state(self, state=State()):
         self.states[(state.name, state.symbol)] = state
 
-    def upload_states_by_archive(self, path):
-        states = file_reader(path)
+    def set_states(self, states):
         self.states.clear()
         self.states = states
-
 
     def next_state(self, name, symbol):
         next_state = self.states.get((name, symbol))

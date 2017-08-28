@@ -7,10 +7,11 @@ from configuration import Configuration
 # noinspection PyUnresolvedReferences
 from tape import Tape
 
+from src.view.file_reader import file_reader
+
 INITIALSTATENAME = '0'
 ACCEPTANCESTATE = 'halt-accept'
 BOUNCESTATE = 'halt-reject'
-BREAKLINE = '\n'
 
 
 class Machine:
@@ -20,8 +21,12 @@ class Machine:
         self.configuration = configuration
         self.steps = []
 
-    def upload_states_by_archive(self, path):
-        self.configuration.upload_states_by_archive(path)
+    def have_configuration(self):
+        return self.configuration.have_states()
+
+    def load_states_from_file(self, path):
+        states = file_reader(path)
+        self.configuration.set_states(states)
 
     def insert_tape(self, input):
         self.tape.insert(input)
@@ -33,7 +38,7 @@ class Machine:
             time.sleep(0.10)
             print ("Current state: %s | Head Position: %d | Steps: %d" % (str(current_state),
                                                                           self.tape.get_head_position(), cont))
-            print ("Tape: " + BREAKLINE + self.tape.get_head_pointer())
+            print ("Tape: \n" + self.tape.get_head_pointer())
             print (self.tape)
             if current_state is not None:
                 self.tape.write(current_state.new_symbol)
@@ -66,10 +71,10 @@ class Machine:
             elif command.lower() == "r":
                 self.print_step(step)
             else:
-                print "opcao invalida, vai ate o fim msm"
+                print ("opcao invalida, vai ate o fim msm")
                 self.print_step(step)
 
     def print_step(self, step):
         print ("Current state: %s | Steps: %d" % (step[0], step[1]))
-        print ("Tape: " + BREAKLINE + step[2])
+        print ("Tape: \n" + step[2])
         print (step[3])
