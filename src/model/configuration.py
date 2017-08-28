@@ -5,6 +5,7 @@ USED = '*'
 COMMENTSYMBOL = ';'
 BREAKLINE = '\n'
 
+
 class Configuration:
 
     def __init__(self):
@@ -26,7 +27,7 @@ class Configuration:
 
     def next_state(self, name, symbol):
         next_state = self.states.get((name, symbol))
-        if next_state == None:
+        if next_state is None:
             next_state = self.states.get((name, USED))
         return next_state
 

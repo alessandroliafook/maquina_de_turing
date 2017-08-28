@@ -15,7 +15,6 @@ machine.upload_states_by_archive("../tests/binary_addiction.in")
 machine.insert_tape("10 10")
 machine.run()
 '''
-
 '''
 #Binary Multiplication - OK
 machine = Machine()
