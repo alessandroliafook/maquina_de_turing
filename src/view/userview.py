@@ -4,7 +4,8 @@ import time
 
 OPTIONS = "\n" + "="*61 + "\nPress 'I' to import a program, or 'C' to close the simulator: "
 
-class Facade:
+
+class UserView:
 
     def __init__(self):
         self.manager = Manager()
@@ -49,5 +50,3 @@ class Facade:
         print ("> Write the input word:")
         word = raw_input()
         return word
-
-
