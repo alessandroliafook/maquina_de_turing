@@ -9,7 +9,7 @@ COMMENTSYMBOL = ';'
 """
     The class Configuration contains a state dictionary for Turing Machine
 """
-class Configuration:
+class Machine_Program:
 
     def __init__(self):
         self.states = {}
@@ -34,4 +34,4 @@ class Configuration:
         return str(self.states.keys())
 
     def __repr__(self):
-        return "Machine Configuration"
+        return "Machine Program"

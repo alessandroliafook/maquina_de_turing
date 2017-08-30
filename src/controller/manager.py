@@ -7,12 +7,12 @@ class Manager:
         self.machine = Machine()
 
     def mount_machine(self, path, tape):
-        self.machine.load_states_from_file(path)
+        self.machine.load_program(path)
         self.machine.insert_tape(tape)
         return self.start_machine()
 
     def start_machine(self):
-        if self.machine.have_configuration():
+        if self.machine.have_program():
             self.machine.run()
             return True
         else:

@@ -16,11 +16,11 @@ class Facade:
 
             if option.lower() == 'i':
                 path = self.get_program_path()
-                if data_validator.configuration_path(path):
+                if data_validator.validade_path(path):
                     tape = self.get_input_word()
                     self.manager.mount_machine(path, tape)
                 else:
-                    print ("Wrong configuration path!!!")
+                    print ("Wrong program path!!!")
 
             elif option.lower() == 'c':
                 print ("Closing simulator...")
