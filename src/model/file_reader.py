@@ -1,4 +1,4 @@
-from src.model.state import State
+from state import State
 
 COMMENTSYMBOL = ';'
 

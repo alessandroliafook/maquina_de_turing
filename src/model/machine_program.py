@@ -4,13 +4,12 @@ from state import State
 USED = '*'
 COMMENTSYMBOL = ';'
 
-"""
-    The class Configuration contains a state dictionary for Turing Machine
-    Syntax: '<current state> <current symbol> <new symbol> <direction> <new state>'.
-    The key to the dictionary is a tuple: (state name, current symbol)
-"""
 class Machine_Program:
-
+    """
+        The class Configuration contains a state dictionary for Turing Machine
+        Syntax: '<current state> <current symbol> <new symbol> <direction> <new state>'.
+        The key to the dictionary is a tuple: (state name, current symbol)
+    """
     def __init__(self):
         self.states = {}
 

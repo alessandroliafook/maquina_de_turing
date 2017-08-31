@@ -1,11 +1,8 @@
 # coding: utf-8
 
-import time
-# noinspection PyUnresolvedReferences
+from machine_program import Machine_Program
+from file_reader import file_reader
 from tape import Tape
-
-from src.model.machine_program import Machine_Program
-from src.view.file_reader import file_reader
 
 INITIALSTATENAME = '0'
 ACCEPTANCESTATE = 'halt-accept'

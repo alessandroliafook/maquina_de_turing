@@ -1,5 +1,5 @@
-from src.controller.manager import Manager
-from src.view import data_validator
+from controller.manager import Manager
+from view import data_validator
 import time
 
 OPTIONS = "\n" + "="*61 + "\nPress 'I' to import a program, or 'C' to close the simulator: "
@@ -50,3 +50,4 @@ class UserView:
         print ("> Write the input word:")
         word = raw_input()
         return word
+

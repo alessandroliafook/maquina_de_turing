@@ -1,5 +1,4 @@
-# noinspection PyUnresolvedReferences
-from src.model.machine import Machine
+from machine import Machine
 
 '''
                             --- Tests for the machine ---
@@ -35,13 +34,13 @@ machine.insert_tape("1001")
 machine.run()
 '''
 
-'''
+
 #Binary addiction - OK
 machine = Machine()
 machine.load_program("../tests/binary_addiction.in")
 machine.insert_tape("10 10")
 machine.run()
-'''
+
 
 '''
 #Binary Multiplication - OK

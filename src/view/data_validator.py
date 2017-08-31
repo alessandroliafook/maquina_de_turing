@@ -4,6 +4,3 @@ def validade_path(path):
         return True
     except IOError:
         return False
-
-def validade_tape(states):
-    return True
