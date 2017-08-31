@@ -1,5 +1,5 @@
 # noinspection PyUnresolvedReferences
-from machine import Machine
+from src.model.machine import Machine
 
 '''
 #palindrome_detector - OK
@@ -61,7 +61,7 @@ machine.run()
 #Primality Test - OK
 machine = Machine()
 machine.load_program("../tests/primality_test.in")
-machine.insert_tape("101")
+machine.insert_tape("11")
 machine.run()
 '''
 
