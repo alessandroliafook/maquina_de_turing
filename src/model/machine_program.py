@@ -1,13 +1,13 @@
 # noinspection PyUnresolvedReferences
 from state import State
 
-from src.view.file_reader import file_reader
-
 USED = '*'
 COMMENTSYMBOL = ';'
 
 """
     The class Configuration contains a state dictionary for Turing Machine
+    Syntax: '<current state> <current symbol> <new symbol> <direction> <new state>'.
+    The key to the dictionary is a tuple: (state name, current symbol)
 """
 class Machine_Program:
 

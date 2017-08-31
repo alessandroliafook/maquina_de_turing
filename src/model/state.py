@@ -1,4 +1,10 @@
 
+
+'''
+    Simulates a state with the following syntax:
+    '<current state> <current symbol> <new symbol> <direction> <new state>'
+'''
+
 class State(object):
 
     def __init__(self, name='', symbol='', new_symbol='', direction='', next_state_name=''):

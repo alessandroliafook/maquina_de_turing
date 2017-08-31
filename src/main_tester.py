@@ -2,6 +2,32 @@
 from src.model.machine import Machine
 
 '''
+                            --- Tests for the machine ---
+    The lines of the configuration file for the machine must be in the following order:
+        '<current state> <current symbol> <new symbol> <direction> <new state>'
+    
+    Obs: The machine halts when it reaches any state starting with 'halt'.
+         '*' can be used as a wildcard in <current symbol> or <current state> to match any character or state.
+         '*' can be used in <new symbol> or <new state> to mean 'no change'.        
+    
+    
+        Example:    0 0 _ r 1o
+                    0 1 _ r 1i
+                    ...
+                    accept * : r accept2
+                    accept2 * ) * halt-accept
+                    ...
+                        
+    Write the tests for the machine here according to the following syntax:
+        m = Machine()
+        m.load_program(PATH...)
+        m.insert_tape(TAPE STRING...)
+        m.run()
+                                
+'''
+
+
+'''
 #palindrome_detector - OK
 machine = Machine()
 machine.load_program("../tests/palindrome_detector.in")

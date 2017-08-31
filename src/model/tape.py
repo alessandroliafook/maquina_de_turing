@@ -5,6 +5,10 @@ LEFT = 'l'
 RIGHT = 'r'
 USED = '*'
 
+'''
+    In this class we add a blank at the beginning and another at the end
+    so that we can use the infinite tape for both sides.
+'''
 
 class Tape(object):
 
@@ -27,6 +31,9 @@ class Tape(object):
     def get_tape(self):
         return self.cells
 
+    '''
+        These conditions ensure that two sides of the tape are infinite.
+    '''
     def move(self, direction):
         if direction == RIGHT:
             if self.head_position == len(self.cells)-1:

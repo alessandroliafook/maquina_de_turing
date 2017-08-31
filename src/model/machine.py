@@ -15,8 +15,8 @@ BOUNCESTATE = 'halt-reject'
 class Machine:
 
     def __init__(self, tape=Tape(), machine_program=Machine_Program()):
-        self.tape = tape
-        self.machine_program = machine_program
+        self.tape = tape #object tape
+        self.machine_program = machine_program #object Machine_program
 
     def have_program(self):
         return self.machine_program.have_states()
