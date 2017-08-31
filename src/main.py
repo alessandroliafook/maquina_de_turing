@@ -1,5 +1,5 @@
 # coding: utf-8;
-from view.userview import UserView
+from userview.userview import UserView
 
 
 def main():

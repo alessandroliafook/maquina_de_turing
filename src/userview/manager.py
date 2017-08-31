@@ -1,4 +1,4 @@
-from model.machine import Machine
+from machine.machine import Machine
 
 
 class Manager:
